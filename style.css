@@ -17,7 +17,10 @@ body {
 /* Navbar */
 .navbar {
     background-color: var(--dark-green);
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-container {
@@ -29,7 +32,7 @@ body {
 }
 
 .nav-logo img {
-    height: 50px;
+    height: 40px;
 }
 
 .nav-menu {
@@ -49,8 +52,12 @@ body {
     background-image: url('img/mirador20east20alamo.png');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 100vh;      /* Esto hace que ocupe exactamente el alto de la ventana */
+    min-height: 100vh;  /* Asegura un tamaño mínimo igual al viewport */
+    max-height: 100vh;  /* Asegura que no crezca más allá del viewport */
     position: relative;
+    display: flex;      /* Ayuda a centrar el contenido verticalmente */
+    align-items: center;/* Centra el contenido verticalmente */
 }
 
 .hero-content {
@@ -63,8 +70,19 @@ body {
 }
 
 .hero-logo {
-    width: 200px;
+    width: 400px;
     margin-bottom: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.motto {
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Estadísticas */
@@ -81,8 +99,29 @@ body {
 }
 
 .stat-item i {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-phone {
+    background-image: url('img/telephone-icon-512x512-afs2hs48.png');
+}
+
+.icon-person {
+    background-image: url('img/person-icon-1901x2048-a9h70k71.png');
+}
+
+.icon-card {
+    background-image: url('img/684833.png');
+}
+
+.icon-graduation {
+    background-image: url('img/422.png');
 }
 
 .stat-item h2 {
