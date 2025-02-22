@@ -1,0 +1,135 @@
+:root {
+    --dark-green: #1a472a;
+    --light-green: #2a5a3a;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--dark-green);
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 50px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('img/mirador20east20alamo.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}
+
+.hero-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-logo {
+    width: 200px;
+    margin-bottom: 2rem;
+}
+
+/* Estadísticas */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 2rem;
+    background-color: var(--light-green);
+    color: var(--white);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.stat-item h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Nuevo estilo para la sección del carrusel */
+.carousel-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+    overflow: hidden;
+}
+
+.carousel {
+    max-width: 800px;  /* Reducido para un aspecto más horizontal */
+    height: 400px;     /* Altura fija para mantener proporción */
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Mantiene la proporción de la imagen */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+}
+
+.carousel-button {
+    background-color: var(--dark-green);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: var(--light-green);
+}
