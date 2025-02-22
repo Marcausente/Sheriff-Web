@@ -149,6 +149,35 @@ body {
     margin-right: 1.5rem;
 }
 
+/* Corregir las rutas y tamaños de los iconos */
+.icon-phone {
+    background-image: url('img/telephone-icon-512x512-afs2hs48.png');
+    width: 60px !important;
+    height: 60px !important;
+    display: block;
+}
+
+.icon-person {
+    background-image: url('img/person-icon-1901x2048-a9h70k71.png');
+    width: 60px !important;
+    height: 60px !important;
+    display: block;
+}
+
+.icon-card {
+    background-image: url('img/684833.png');
+    width: 60px !important;
+    height: 60px !important;
+    display: block;
+}
+
+.icon-graduation {
+    background-image: url('img/422.png');
+    width: 60px !important;
+    height: 60px !important;
+    display: block;
+}
+
 .stat-info h2 {
     font-size: 2.5rem;
     color: var(--dark-green);
@@ -217,7 +246,7 @@ body {
 /* Sobre Nosotros mejorado */
 .about-section {
     padding: 6rem 2rem;
-    background-color: var(--white);
+    background-color: var(--gray);
 }
 
 .about-container {
