@@ -59,3 +59,23 @@ class Carousel {
 document.addEventListener('DOMContentLoaded', () => {
     new Carousel('carousel');
 });
+
+// Función para manejar las animaciones de scroll
+function handleScrollAnimations() {
+    const elements = document.querySelectorAll('.section-title, .stat-item, .about-text');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(element => observer.observe(element));
+}
+
+// Inicializar las animaciones de scroll
+document.addEventListener('DOMContentLoaded', () => {
+    handleScrollAnimations();
+});
