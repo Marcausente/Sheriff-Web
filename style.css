@@ -242,63 +242,84 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Carrusel mejorado */
+/* Estilos del carrusel */
 .carousel-section {
     padding: 4rem 0;
     background-color: var(--gray);
 }
 
+.carousel-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carousel {
+    position: relative;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-track {
+    height: 100%;
+    position: relative;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 20px;
+}
+
+.carousel-button.next {
+    right: 20px;
+}
+
 .section-title {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .section-title h2 {
     font-size: 2.5rem;
     color: var(--dark-green);
-    margin-bottom: 1rem;
-}
-
-.carousel {
-    max-width: 800px;
-    height: 400px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.carousel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.carousel-buttons {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
-}
-
-.carousel-button {
-    background-color: var(--dark-green);
-    color: var(--white);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 4px;
-    font-weight: bold;
-}
-
-.carousel-button:hover {
-    background-color: var(--light-green);
-    transform: translateY(-2px);
+    margin-bottom: 0.5rem;
 }
 
 /* Sobre Nosotros mejorado */
