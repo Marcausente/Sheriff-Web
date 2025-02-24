@@ -25,6 +25,7 @@ body {
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    height: 57px;
 }
 
 .nav-container {
@@ -109,12 +110,14 @@ body {
     background-image: url('img/mirador20east20alamo.png');
     background-size: cover;
     background-position: center;
-    height: calc(100vh - 57px);
+    height: 100vh;
     min-height: 400px;
     padding: 2rem;
     position: relative;
     display: flex;
     align-items: center;
+    margin-top: -57px;
+    padding-top: calc(2rem + 57px);
 }
 
 .hero::before {
