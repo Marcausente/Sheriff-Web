@@ -139,41 +139,27 @@ body {
 
 .hero-logo {
     width: 250px;
-    max-width: 90%;
-    margin-bottom: 1.5rem;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
     transition: all 0.5s ease;
-    cursor: pointer;
-    transform-origin: center;
-    animation: logoFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
 }
 
 .hero-logo:hover {
-    transform: scale(1.1) rotate(2deg);
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) brightness(1.2);
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
 }
 
-@keyframes logoFloat {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.hero-content h1 {
+.hero h1 {
     font-size: 2.5rem;
-    text-shadow: var(--text-shadow);
-    margin-bottom: 1rem;
+    margin: 1.5rem 0;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .motto {
-    font-size: 1.4rem;
-    text-shadow: var(--text-shadow);
+    font-size: 1.3rem;
+    color: var(--white);
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 /* Nueva flecha de scroll */
@@ -671,11 +657,68 @@ body {
 }
 
 .info-card {
-    background-color: var(--gray);
+    background: white;
     padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.info-card ul li {
+    margin: 1rem 0;
+    padding: 1rem 1rem 1rem 2.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    height: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    background: rgba(26, 71, 42, 0.03);
+}
+
+.info-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 1rem;
+    color: var(--dark-green);
+    transition: all 0.3s ease;
+}
+
+.info-card ul li:hover {
+    background: rgba(26, 71, 42, 0.1);
+    padding-left: 3rem;
+}
+
+.info-card ul li:hover::before {
+    left: 1.5rem;
+    color: var(--dark-green);
+}
+
+/* Efecto de destaque para los títulos */
+.info-card h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.info-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--dark-green);
+    transition: width 0.3s ease;
+}
+
+.info-card:hover h2::after {
+    width: 100%;
 }
 
 .info-card h2 {
@@ -895,9 +938,8 @@ body {
 
 /* Texto motivacional */
 .motivational-text {
-    text-align: center;
-    padding: 2.5rem 2rem;
-    background: linear-gradient(to right, transparent, rgba(42, 90, 58, 0.05), transparent);
+    background-color: white;
+    padding: 3rem 1rem;
 }
 
 .motivational-text p {
@@ -916,5 +958,99 @@ body {
 
     .motivational-text p {
         font-size: 1.2rem;
+    }
+}
+
+/* Actualizar los estilos de las secciones */
+.promo-section {
+    background-color: var(--gray);
+    padding: 2rem 0;
+}
+
+.application-section {
+    background-color: white;
+    padding: 3rem 0;
+}
+
+.info-section {
+    background-color: var(--gray);
+    padding: 4rem 0;
+}
+
+/* Nuevo estilo para la sección del lema */
+.motto-section {
+    background-color: white;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.motto-text {
+    font-size: 1.5rem;
+    color: var(--dark-green);
+    font-style: italic;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.motto-text:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Media queries para pantallas más grandes manteniendo la interactividad */
+@media (min-width: 768px) {
+    .hero-logo {
+        width: 300px;
+    }
+
+    .hero-logo:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .motto {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-logo {
+        width: 350px;
+    }
+
+    .hero-logo:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .motto {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .hero-logo {
+        width: 400px;
+    }
+
+    .hero-logo:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.6));
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .motto {
+        font-size: 2rem;
     }
 }
