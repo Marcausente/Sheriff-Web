@@ -221,11 +221,14 @@ body {
     padding: 2rem;
     background-color: var(--gray);
     border-radius: 8px;
-    transition: transform 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .stat-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    background-color: white;
 }
 
 .stat-item i {
@@ -290,6 +293,13 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.carousel:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 .carousel-track {
@@ -316,21 +326,28 @@ body {
 .carousel-button {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    transform: translateY(-50%) scale(0.9);
+    background: rgba(26, 71, 42, 0.7);
     color: white;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border: none;
     border-radius: 50%;
     cursor: pointer;
     z-index: 2;
-    font-size: 20px;
-    transition: background-color 0.3s;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.carousel:hover .carousel-button {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
 }
 
 .carousel-button:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--dark-green);
+    transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-button.prev {
@@ -371,12 +388,36 @@ body {
     font-size: 2.5rem;
     color: var(--dark-green);
     margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--dark-green);
+    transition: width 0.4s ease;
+}
+
+.about-text:hover h2::after {
+    width: 100%;
 }
 
 .mission {
     font-size: 1.1rem;
     margin-bottom: 2rem;
     color: #333;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mission:hover {
+    transform: translateY(-5px);
+    color: var(--dark-green);
 }
 
 .motto-description {
@@ -384,6 +425,15 @@ body {
     border-left: 4px solid var(--light-green);
     padding-left: 1.5rem;
     color: #555;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.motto-description:hover {
+    padding-left: 2rem;
+    color: var(--dark-green);
+    border-left-width: 6px;
 }
 
 .video-container {
@@ -393,6 +443,12 @@ body {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.video-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .video-container iframe {
@@ -627,8 +683,9 @@ body {
 /* Sección de imagen promocional */
 .promo-section {
     width: 100%;
-    padding: 2rem 0;
+    padding: 2rem 0 4rem 0;
     background-color: var(--gray);
+    position: relative;
 }
 
 .promo-image {
@@ -638,6 +695,34 @@ body {
     margin: 0 auto;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+}
+
+.promo-image:hover {
+    transform: scale(1.02) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.promo-image::after {
+    content: 'Click para más información';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark-green);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.promo-image:hover::after {
+    opacity: 1;
+    bottom: -30px;
 }
 
 /* Sección de información */
