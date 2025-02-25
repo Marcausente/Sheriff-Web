@@ -19,7 +19,7 @@ body {
 
 /* Navbar mejorado */
 .navbar {
-    background-color: var(--dark-green);
+    background-color: #031800;
     padding: 0.2rem 0;
     position: sticky;
     top: 0;
@@ -639,7 +639,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: var(--dark-green);
+    background-color: #031800;
     color: var(--white);
     text-align: center;
     padding: 1.5rem 0;
