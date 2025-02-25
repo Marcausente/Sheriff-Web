@@ -105,6 +105,15 @@ body {
     transform: translateY(-2px);
 }
 
+.nav-menu a.active {
+    color: #FFD700;
+}
+
+.nav-menu a.active::after {
+    width: 70%;
+    background-color: #FFD700;
+}
+
 /* Hero Section mejorado */
 .hero {
     background-image: url('img/mirador20east20alamo.png');
