@@ -327,4 +327,39 @@ document.addEventListener('DOMContentLoaded', () => {
             closeLightboxFunction();
         }
     });
+
+    // Funcionalidad específica para la página de Rangers
+    const rangerItems = document.querySelectorAll('.ranger-description li');
+    
+    // Añadir delay de animación a cada item
+    rangerItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // Efecto de hover mejorado para los items
+    rangerItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            // Crear y añadir el icono
+            const icon = document.createElement('span');
+            icon.textContent = '→';
+            icon.style.position = 'absolute';
+            icon.style.left = '-20px';
+            icon.style.opacity = '0';
+            icon.style.transition = 'all 0.3s ease';
+            
+            item.appendChild(icon);
+            
+            setTimeout(() => {
+                icon.style.left = '0';
+                icon.style.opacity = '1';
+            }, 50);
+        });
+
+        item.addEventListener('mouseleave', () => {
+            const icon = item.querySelector('span');
+            if (icon) {
+                icon.remove();
+            }
+        });
+    });
 });

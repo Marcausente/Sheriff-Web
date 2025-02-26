@@ -1600,3 +1600,80 @@ body {
     font-size: 1.2rem;
     line-height: 1.6;
 }
+
+/* Estilos específicos para Park Ranger */
+.ranger-description {
+    background: linear-gradient(to bottom, var(--gray), white);
+    padding: 4rem 2rem;
+}
+
+.ranger-description h2 {
+    color: var(--dark-green);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.ranger-description ul {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.ranger-description li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+.ranger-description li::before {
+    content: '•';
+    color: var(--dark-green);
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.ranger-description li:hover {
+    transform: translateX(10px);
+    color: var(--dark-green);
+}
+
+/* Animación para el contenido del Ranger */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media queries para Park Ranger */
+@media (max-width: 768px) {
+    .ranger-description {
+        padding: 2rem 1rem;
+    }
+
+    .ranger-description h2 {
+        font-size: 2rem;
+    }
+
+    .ranger-description ul {
+        padding: 1.5rem;
+    }
+
+    .ranger-description li {
+        font-size: 1rem;
+    }
+}
