@@ -149,15 +149,30 @@ body {
     transform: translateY(-5%);
 }
 
+/* Animación de flotación para el logo */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 .hero-logo {
     width: 250px;
     transition: all 0.5s ease;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    animation: floatAnimation 3s ease-in-out infinite;
 }
 
 .hero-logo:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+    animation: none; /* Detiene la animación de flotación durante el hover */
 }
 
 .hero h1 {
