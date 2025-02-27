@@ -362,4 +362,251 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Funcionalidad para la página de comisarías
+    document.addEventListener('DOMContentLoaded', function() {
+        // Verificar si estamos en la página de comisarías
+        const stationsSection = document.querySelector('.stations-section');
+        if (!stationsSection) return;
+        
+        // Datos adicionales para cada comisaría
+        const stationData = {
+            'señora': {
+                features: [
+                    'Centro de operaciones principal',
+                    'Unidad de investigaciones especiales',
+                    'Centro de comunicaciones',
+                    'Sala de conferencias de prensa',
+                    'Helipuerto',
+                    'Garaje para vehículos especializados',
+                    'Armería central'
+                ]
+            },
+            'sandy': {
+                features: [
+                    'Unidad de respuesta táctica',
+                    'Centro de coordinación rural',
+                    'Unidad de búsqueda y rescate',
+                    'Patrulla de carreteras',
+                    'Garaje para vehículos todoterreno',
+                    'Sala de entrenamiento'
+                ]
+            },
+            'paleto': {
+                features: [
+                    'Unidad marítima',
+                    'Patrulla costera',
+                    'Centro de monitoreo ambiental',
+                    'Unidad de respuesta a emergencias',
+                    'Muelle para embarcaciones',
+                    'Torre de vigilancia'
+                ]
+            },
+            'marina': {
+                features: [
+                    'Unidad de seguridad turística',
+                    'Patrulla de playas',
+                    'Centro de atención al ciudadano',
+                    'Unidad de tráfico',
+                    'Sala de monitoreo de cámaras',
+                    'Centro de formación comunitaria'
+                ]
+            },
+            'beaver': {
+                features: [
+                    'Centro de conservación ambiental',
+                    'Unidad de prevención de incendios',
+                    'Centro de rescate de fauna',
+                    'Patrulla de senderos',
+                    'Estación meteorológica',
+                    'Centro de información para visitantes'
+                ]
+            },
+            'paletoforest': {
+                features: [
+                    'Unidad de rastreo',
+                    'Centro de primeros auxilios',
+                    'Patrulla forestal',
+                    'Punto de control de cazadores',
+                    'Torre de vigilancia de incendios',
+                    'Albergue de emergencia'
+                ]
+            },
+            'bolingbroke': {
+                features: [
+                    'Celdas de máxima seguridad',
+                    'Centro de rehabilitación',
+                    'Unidad médica',
+                    'Torres de vigilancia',
+                    'Perímetro de seguridad avanzado',
+                    'Centro de formación correccional',
+                    'Unidad canina especializada'
+                ]
+            }
+        };
+
+        // Obtener elementos del DOM
+        const stationCards = document.querySelectorAll('.station-card');
+        const modal = document.getElementById('stationModal');
+        const closeModal = document.querySelector('.close-modal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalDetails = document.getElementById('modalDetails');
+        const modalFeatures = document.getElementById('modalFeatures');
+
+        // Función para abrir el modal con la información de la estación
+        function openStationModal(station) {
+            const location = station.getAttribute('data-location');
+            const image = station.querySelector('img').src;
+            const title = station.querySelector('h2').textContent;
+            const description = station.querySelector('.station-description').textContent;
+            const details = station.querySelector('.station-details').innerHTML;
+            
+            // Llenar el modal con la información
+            modalImage.src = image;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalDetails.innerHTML = details;
+            
+            // Limpiar y llenar las características
+            modalFeatures.innerHTML = '';
+            if (stationData[location]) {
+                stationData[location].features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    modalFeatures.appendChild(li);
+                });
+            }
+            
+            // Mostrar el modal con animación
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Animar la entrada de las características
+            setTimeout(() => {
+                const featureItems = modalFeatures.querySelectorAll('li');
+                featureItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(-20px)';
+                    
+                    setTimeout(() => {
+                        item.style.transition = 'all 0.3s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, 100 * (index + 1));
+                });
+            }, 300);
+        }
+
+        // Función para cerrar el modal
+        function closeStationModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Añadir event listeners
+        stationCards.forEach(card => {
+            card.addEventListener('click', () => {
+                openStationModal(card);
+            });
+        });
+
+        closeModal.addEventListener('click', closeStationModal);
+
+        // Cerrar el modal al hacer clic fuera del contenido
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeStationModal();
+            }
+        });
+
+        // Cerrar el modal con la tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeStationModal();
+            }
+        });
+
+        // Efecto de parallax en las imágenes de las estaciones
+        window.addEventListener('scroll', () => {
+            stationCards.forEach(card => {
+                const cardRect = card.getBoundingClientRect();
+                const cardImage = card.querySelector('img');
+                
+                if (cardRect.top < window.innerHeight && cardRect.bottom > 0) {
+                    const scrollPosition = window.scrollY;
+                    const cardTop = card.offsetTop;
+                    const scrollValue = (scrollPosition - cardTop) * 0.1;
+                    
+                    cardImage.style.transform = `translateY(${scrollValue}px)`;
+                }
+            });
+        });
+
+        // Animación de entrada para las tarjetas
+        function animateStationCards() {
+            stationCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        }
+
+        // Observador de intersección para animar las tarjetas cuando son visibles
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStationCards();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observar la sección de estaciones
+        observer.observe(stationsSection);
+
+        // Efecto de hover 3D para las tarjetas
+        stationCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // Efecto de brillo al pasar el ratón sobre las tarjetas
+        stationCards.forEach(card => {
+            const overlay = card.querySelector('.station-overlay');
+            
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                overlay.style.background = `
+                    radial-gradient(circle at ${x}px ${y}px, 
+                    rgba(26, 71, 42, 0.4) 0%, 
+                    rgba(26, 71, 42, 0.8) 70%)
+                `;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                overlay.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(26, 71, 42, 0.8) 100%)';
+            });
+        });
+    });
 });

@@ -1693,3 +1693,368 @@ body {
         font-size: 1rem;
     }
 }
+
+/* Estilos para la sección de comisarías */
+.stations-section {
+    padding: 4rem 2rem;
+    background-color: var(--gray);
+}
+
+.stations-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
+}
+
+.station-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.station-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.station-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.station-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.station-card:hover .station-image img {
+    transform: scale(1.1);
+}
+
+.station-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(26, 71, 42, 0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.station-card:hover .station-overlay {
+    opacity: 1;
+}
+
+.view-details {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.station-card:hover .view-details {
+    transform: translateY(0);
+}
+
+.station-info {
+    padding: 1.5rem;
+}
+
+.station-info h2 {
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.station-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dark-green);
+    transition: width 0.3s ease;
+}
+
+.station-card:hover .station-info h2::after {
+    width: 100%;
+}
+
+.station-description {
+    color: #555;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.station-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.detail-icon {
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.location-icon {
+    background-image: url('img/location-icon.png');
+}
+
+.staff-icon {
+    background-image: url('img/staff-icon.png');
+}
+
+.service-icon {
+    background-image: url('img/clock-icon.png');
+}
+
+.detail-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Modal de estación */
+.station-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.station-modal.active {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 5% auto;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.station-modal.active .modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg);
+    color: #FFD700;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-image-container {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
+}
+
+.modal-info {
+    padding: 2rem;
+}
+
+.modal-info h2 {
+    color: var(--dark-green);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.modal-info p {
+    color: #555;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.modal-details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-details .detail-item {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1rem;
+}
+
+.modal-features h3 {
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.modal-features ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.modal-features li {
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.modal-features li::before {
+    content: '✓';
+    color: var(--dark-green);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Animaciones para las tarjetas */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicar retrasos de animación a las tarjetas */
+.station-card:nth-child(1) { animation-delay: 0.1s; }
+.station-card:nth-child(2) { animation-delay: 0.2s; }
+.station-card:nth-child(3) { animation-delay: 0.3s; }
+.station-card:nth-child(4) { animation-delay: 0.4s; }
+.station-card:nth-child(5) { animation-delay: 0.5s; }
+.station-card:nth-child(6) { animation-delay: 0.6s; }
+.station-card:nth-child(7) { animation-delay: 0.7s; }
+
+/* Media queries para responsividad */
+@media (max-width: 1200px) {
+    .stations-container {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .stations-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-body {
+        flex-direction: column;
+    }
+    
+    .modal-image-container {
+        height: 300px;
+    }
+    
+    .modal-info {
+        padding: 1.5rem;
+    }
+    
+    .modal-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .modal-info p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .station-image {
+        height: 200px;
+    }
+    
+    .station-info h2 {
+        font-size: 1.3rem;
+    }
+    
+    .station-description {
+        font-size: 0.9rem;
+    }
+    
+    .modal-image-container {
+        height: 200px;
+    }
+}
