@@ -2058,3 +2058,249 @@ body {
         height: 200px;
     }
 }
+
+/* Estilos para la sección de agentes */
+.agents-section {
+    padding: 4rem 2rem;
+    background-color: var(--gray);
+}
+
+.agents-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.rank-group {
+    margin-bottom: 3rem;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease;
+}
+
+.rank-title {
+    color: var(--dark-green);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--dark-green);
+    position: relative;
+}
+
+.rank-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background-color: #FFD700;
+}
+
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    justify-content: center;
+}
+
+.agent-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.agent-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.agent-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--dark-green);
+    transition: all 0.5s ease;
+}
+
+.agent-card:hover .agent-image {
+    transform: scale(1.05);
+}
+
+.agent-info {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.agent-rank {
+    color: var(--dark-green);
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.agent-name {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+.agent-name::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dark-green);
+    transition: width 0.3s ease;
+}
+
+.agent-card:hover .agent-name::after {
+    width: 100%;
+}
+
+.badge-icon {
+    position: absolute;
+    top: -30px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--dark-green);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.agent-card:hover .badge-icon {
+    transform: rotate(360deg);
+    background-color: #FFD700;
+    color: var(--dark-green);
+}
+
+/* Media queries para responsividad */
+@media (max-width: 1200px) {
+    .agents-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .agents-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .rank-title {
+        font-size: 1.8rem;
+    }
+    
+    .agent-image {
+        height: 250px;
+    }
+    
+    .agent-info {
+        padding: 1.2rem;
+    }
+    
+    .agent-name {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .agents-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .agent-image {
+        height: 280px;
+    }
+}
+
+/* Ajustes para centrar las tarjetas de agentes */
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .agents-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+    
+    .agent-card {
+        width: 280px;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .agents-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .agent-card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}
+
+/* Mejora para la sección de descripción de agentes */
+.agents-section .section-description {
+    text-align: center;
+    padding: 2rem 2rem 3rem;
+    background-color: transparent;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(26, 71, 42, 0.2);
+    margin-bottom: 3rem;
+}
+
+.agents-section .section-description p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--dark-green);
+    font-weight: 300;
+    max-width: 900px;
+    margin: 0 auto;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+    .agents-section .section-description {
+        padding: 1.5rem 1.5rem 2.5rem;
+    }
+    
+    .agents-section .section-description p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .agents-section .section-description p {
+        font-size: 1.1rem;
+    }
+}
