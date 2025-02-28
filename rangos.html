@@ -6,6 +6,7 @@
     <title>Rangos - Los Santos County Sheriff Department</title>
     <link rel="icon" type="image/webp" href="img/LSSD.webp">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -37,7 +38,211 @@
         <h1>Escala de Rangos</h1>
     </div>
 
-    <!-- Aquí va el contenido específico de rangos -->
+    <!-- Introducción a los rangos -->
+    <section class="ranks-intro">
+        <div class="container">
+            <h2>Jerarquía del Departamento</h2>
+            <p>El Departamento del Sheriff del Condado de Los Santos opera bajo una estructura jerárquica bien definida que garantiza una cadena de mando clara y eficiente. Cada rango conlleva responsabilidades específicas y representa años de servicio, dedicación y excelencia en el cumplimiento del deber.</p>
+        </div>
+    </section>
+
+    <!-- Sección principal de rangos -->
+    <section class="ranks-section">
+        <div class="ranks-container">
+            <!-- Altos Mandos -->
+            <div class="rank-category command">
+                <h2 class="category-title">Altos Mandos</h2>
+                
+                <div class="rank-item" data-rank="Sheriff">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Sheriff.png" alt="Sheriff">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Sheriff</h3>
+                        <p>Máxima autoridad del departamento. Responsable de la dirección estratégica, políticas departamentales y representación ante autoridades estatales y federales. Designado por elección pública.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item" data-rank="Sheriff Adjunto">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/SheriffAdjunto.png" alt="Sheriff Adjunto">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Sheriff Adjunto</h3>
+                        <p>Segundo al mando. Supervisa las operaciones diarias del departamento y actúa como Sheriff en ausencia del titular. Coordina las divisiones especializadas y asesora en decisiones estratégicas.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item" data-rank="Sheriff Asistente">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/SheriffAsistente.png" alt="Sheriff Asistente">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Sheriff Asistente</h3>
+                        <p>Supervisa áreas específicas del departamento como operaciones, administración o investigaciones. Reporta directamente al Sheriff Adjunto y participa en la planificación estratégica.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item" data-rank="Comandante">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Comandante.png" alt="Comandante">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Comandante</h3>
+                        <p>Dirige divisiones importantes dentro del departamento. Responsable de la implementación de políticas, gestión de recursos y supervisión de capitanes. Participa en decisiones operativas de alto nivel.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mandos Medios -->
+            <div class="rank-category middle-command">
+                <h2 class="category-title">Comisionado</h2>
+
+                <div class="rank-item" data-rank="Capitán">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Capitan.png" alt="Capitán">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Capitán</h3>
+                        <p>Dirige una estación o unidad especializada. Responsable de la asignación de recursos, supervisión de tenientes y coordinación con otras unidades. Implementa estrategias operativas en su área.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item" data-rank="Teniente">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Teniente I.png" alt="Teniente">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Teniente</h3>
+                        <p>Supervisa un turno o unidad específica. Coordina las actividades diarias, gestiona personal y recursos, y asegura el cumplimiento de procedimientos. Reporta directamente al Capitán.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comandancia -->
+            <div class="rank-category command-branch">
+                <h2 class="category-title">Comandancia</h2>
+                <p class="branch-description">Rama encargada de la supervisión operativa y coordinación del personal en campo. Responsables del mando directo de las unidades de patrulla y respuesta a emergencias.</p>
+                
+                <div class="rank-item" data-rank="Sargento II">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Sargento II.png" alt="Sargento II">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Sargento II</h3>
+                        <p>Supervisa un equipo de patrulla o unidad especializada. Responsable de la formación, evaluación y disciplina del personal. Coordina operaciones tácticas y supervisa a sargentos de primer nivel.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item" data-rank="Sargento I">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Sargento I.png" alt="Sargento I">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Sargento I</h3>
+                        <p>Primer nivel de supervisión. Dirige un grupo de deputies en patrulla, supervisa informes y responde a incidentes críticos. Responsable de la supervisión directa y orientación del personal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investigación -->
+            <div class="rank-category investigation-branch">
+                <h2 class="category-title">Investigación</h2>
+                <p class="branch-description">Rama especializada en la resolución de casos criminales. Encargados de investigaciones detalladas, recopilación de evidencia y preparación de casos para la fiscalía. Esta rama opera en paralelo a la Comandancia, sin relación jerárquica entre ambas.</p>
+                
+                <div class="rank-item" data-rank="Detective III">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Detective III.png" alt="Detective III">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Detective III</h3>
+                        <p>Investigador senior que lidera la division de investigación en sus totalidad. Supervisa a otros detectives y coordina investigaciones de gran escala.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item" data-rank="Detective II">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Detective II.png" alt="Detective II">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Detective II</h3>
+                        <p>Investigador experimentado que maneja casos complejos. Supervisa investigaciones específicas y asesora a detectives de menor rango. </p>
+                    </div>
+                </div>
+                
+                <div class="rank-item" data-rank="Detective I">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Detective I.png" alt="Detective I">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Detective I</h3>
+                        <p>Investigador que maneja casos rutinarios y asiste en investigaciones más complejas. Realiza entrevistas, recopila evidencia y prepara casos para la fiscalía. Primer nivel de rango de detective.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Personal de Campo -->
+            <div class="rank-category field-personnel">
+                <h2 class="category-title">Personal de Campo</h2>
+                
+                <div class="rank-item" data-rank="Deputy Sheriff Master FTO">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Master FTO.png" alt="Deputy Sheriff Master FTO">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Deputy Sheriff Master FTO</h3>
+                        <p>Oficial de entrenamiento de campo maestro. Responsable de formar a nuevos deputies y evaluar su progreso. Desarrolla programas de entrenamiento y supervisa a otros FTOs.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item" data-rank="Deputy Sheriff Bonus II">
+                    <div class="rank-badge">
+                        <img src="img/Ranks/Bonus II.png" alt="Deputy Sheriff Bonus II">
+                    </div>
+                    <div class="rank-info">
+                        <h3>Deputy Sheriff Bonus II</h3>
+                        <p>Deputy con experiencia y habilidades avanzadas. Asume responsabilidades adicionales en ausencia de supervisores.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item no-badge" data-rank="Deputy Sheriff Bonus I">
+                    <div class="rank-badge">
+                        <div class="no-badge-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <div class="rank-info">
+                        <h3>Deputy Sheriff Bonus I</h3>
+                        <p>Deputy con experiencia intermedia que ha demostrado competencia en sus funciones. Comienza a asumir responsabilidades adicionales y puede especializarse en áreas específicas.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item no-badge" data-rank="Deputy Sheriff">
+                    <div class="rank-badge">
+                        <div class="no-badge-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <div class="rank-info">
+                        <h3>Deputy Sheriff</h3>
+                        <p>Oficial juramentado que ha completado su periodo de prueba. Realiza patrullaje, responde a llamadas, hace cumplir la ley y mantiene el orden público en el condado.</p>
+                    </div>
+                </div>
+                
+                <div class="rank-item no-badge" data-rank="Deputy Sheriff Trainee">
+                    <div class="rank-badge">
+                        <div class="no-badge-placeholder">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                    </div>
+                    <div class="rank-info">
+                        <h3>Deputy Sheriff Trainee</h3>
+                        <p>Oficial en periodo de prueba y entrenamiento. Trabaja bajo supervisión directa de un FTO mientras aprende los procedimientos, políticas y habilidades necesarias para el servicio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Lema -->
     <section class="motto-section">

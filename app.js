@@ -637,4 +637,104 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // Código específico para la página de rangos
+    document.addEventListener('DOMContentLoaded', function() {
+        // Verificar si estamos en la página de rangos
+        const ranksSection = document.querySelector('.ranks-section');
+        if (!ranksSection) return;
+        
+        // Efecto de hover 3D para las tarjetas de rango
+        function add3DHoverEffect() {
+            const rankItems = document.querySelectorAll('.rank-item');
+            
+            rankItems.forEach(item => {
+                item.addEventListener('mousemove', (e) => {
+                    const rect = item.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+        }
+
+        // Efecto de brillo para las insignias
+        function addBadgeShineEffect() {
+            const badges = document.querySelectorAll('.rank-badge');
+            
+            badges.forEach(badge => {
+                badge.addEventListener('mousemove', (e) => {
+                    const rect = badge.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    badge.style.background = `
+                        radial-gradient(circle at ${x}px ${y}px, 
+                        rgba(255,255,255,0.8) 0%, 
+                        rgba(255,255,255,0.1) 30%,
+                        rgba(255,255,255,0) 70%)
+                    `;
+                });
+                
+                badge.addEventListener('mouseleave', () => {
+                    badge.style.background = 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)';
+                });
+            });
+        }
+
+        // Añadir clase de resaltado al hacer clic en un rango
+        function addHighlightEffect() {
+            const rankItems = document.querySelectorAll('.rank-item');
+            
+            rankItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Eliminar resaltado de todos los elementos
+                    rankItems.forEach(i => i.classList.remove('highlight'));
+                    
+                    // Añadir resaltado al elemento actual
+                    item.classList.add('highlight');
+                    
+                    // Eliminar resaltado después de un tiempo
+                    setTimeout(() => {
+                        item.classList.remove('highlight');
+                    }, 2000);
+                });
+            });
+        }
+
+        // Inicializar efectos interactivos
+        add3DHoverEffect();
+        addBadgeShineEffect();
+        addHighlightEffect();
+        
+        // Animación de entrada para las categorías
+        const rankCategories = document.querySelectorAll('.rank-category');
+        rankCategories.forEach((category, index) => {
+            setTimeout(() => {
+                category.style.opacity = '1';
+                category.style.transform = 'translateY(0)';
+            }, 200 * index);
+        });
+        
+        // Animación de entrada para los elementos de rango
+        const rankItems = document.querySelectorAll('.rank-item');
+        rankItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, 100 * index);
+        });
+    });
 });
+ 
