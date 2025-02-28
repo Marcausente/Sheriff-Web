@@ -736,5 +736,114 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100 * index);
         });
     });
+
+    // Código específico para la página de detalle de Beaver Bush
+    document.addEventListener('DOMContentLoaded', function() {
+        // Verificar si estamos en la página de detalle de Beaver Bush
+        const stationAreas = document.querySelector('.station-areas');
+        if (!stationAreas) return;
+        
+        // Efectos visuales para las tarjetas de área
+        function addAreaCardEffects() {
+            const areaCards = document.querySelectorAll('.area-card');
+            areaCards.forEach(card => {
+                // Efecto de hover 3D
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+        }
+
+        // Efecto de parallax para el mapa
+        function addMapParallaxEffect() {
+            const mapContainer = document.querySelector('.map-container');
+            const locationImage = document.querySelector('.location-image');
+            
+            mapContainer.addEventListener('mousemove', (e) => {
+                const rect = mapContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const moveX = (x - rect.width / 2) / 20;
+                const moveY = (y - rect.height / 2) / 20;
+                
+                locationImage.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+            });
+            
+            mapContainer.addEventListener('mouseleave', () => {
+                locationImage.style.transform = 'translate(0, 0) scale(1)';
+            });
+        }
+
+        // Animación de entrada para los elementos
+        function animateElements() {
+            // Animación para la introducción
+            const introContent = document.querySelector('.intro-content');
+            introContent.style.opacity = '0';
+            introContent.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                introContent.style.transition = 'all 0.8s ease';
+                introContent.style.opacity = '1';
+                introContent.style.transform = 'translateY(0)';
+            }, 300);
+            
+            // Animación para el mapa
+            const mapContainer = document.querySelector('.map-container');
+            mapContainer.style.opacity = '0';
+            mapContainer.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                mapContainer.style.transition = 'all 0.8s ease';
+                mapContainer.style.opacity = '1';
+                mapContainer.style.transform = 'translateY(0)';
+            }, 600);
+            
+            // Animación para las tarjetas de área
+            const areaCards = document.querySelectorAll('.area-card');
+            areaCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.8s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 900 + (index * 200));
+            });
+            
+            // Animación para los servicios
+            const serviceItems = document.querySelectorAll('.service-item');
+            serviceItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'all 0.8s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 1500 + (index * 150));
+            });
+        }
+
+        // Inicializar todos los efectos
+        addAreaCardEffects();
+        addMapParallaxEffect();
+        animateElements();
+    });
 });
  

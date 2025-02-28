@@ -1771,6 +1771,8 @@ body {
     transform: translateY(20px);
     transition: all 0.3s ease;
     cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
 }
 
 .station-card:hover .view-details {
@@ -2803,3 +2805,389 @@ body {
 .investigation-branch:hover .category-title::after {
     width: 100px;
 }
+
+/* Estilos para la página de detalle de Beaver Bush */
+.station-intro {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.station-intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/pattern-leaves.png');
+    background-size: 200px;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-content h2 {
+    color: var(--dark-green);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.intro-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.intro-content:hover h2::after {
+    width: 120px;
+}
+
+.intro-content p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Mapa de ubicación */
+.location-map {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.location-map h2 {
+    text-align: center;
+    color: var(--dark-green);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.location-map h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.location-map h2:hover::after {
+    width: 100px;
+}
+
+.map-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.location-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.map-container:hover .location-image {
+    transform: scale(1.02);
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.map-pin {
+    width: 30px;
+    height: 30px;
+    background-color: var(--accent-color);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    position: absolute;
+    animation: pinPulse 1.5s infinite;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.map-pin::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+@keyframes pinPulse {
+    0% {
+        transform: rotate(-45deg) scale(1);
+        box-shadow: 0 0 0 0 rgba(26, 71, 42, 0.7);
+    }
+    70% {
+        transform: rotate(-45deg) scale(1.1);
+        box-shadow: 0 0 0 10px rgba(26, 71, 42, 0);
+    }
+    100% {
+        transform: rotate(-45deg) scale(1);
+        box-shadow: 0 0 0 0 rgba(26, 71, 42, 0);
+    }
+}
+
+.map-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.map-container:hover .map-info {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.map-info h3 {
+    color: var(--dark-green);
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.map-info p {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Áreas de la estación */
+.station-areas {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.station-areas h2 {
+    text-align: center;
+    color: var(--dark-green);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.station-areas h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.station-areas h2:hover::after {
+    width: 100px;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.area-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(0);
+}
+
+.area-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.area-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.area-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.area-card:hover .area-image img {
+    transform: scale(1.05);
+}
+
+.area-info {
+    padding: 1.5rem;
+}
+
+.area-info h3 {
+    color: var(--dark-green);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.area-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.area-card:hover .area-info h3::after {
+    width: 80px;
+}
+
+.area-info p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Servicios */
+.station-services {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+    position: relative;
+}
+
+.station-services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/pattern-leaves.png');
+    background-size: 200px;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.station-services h2 {
+    text-align: center;
+    color: var(--dark-green);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.station-services h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.station-services h2:hover::after {
+    width: 100px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.service-item {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
