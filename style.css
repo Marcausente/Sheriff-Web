@@ -4,6 +4,9 @@
     --white: #ffffff;
     --gray: #f5f5f5;
     --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    --medium-green: #34495e;
+    --light-gray: #e9ecef;
+    --dark-text: #333;
 }
 
 * {
@@ -3188,6 +3191,158 @@ body {
     transform-origin: left;
     transition: transform 0.3s ease;
 }
-.service-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+/* Estilos para la página de divisiones - Versión corregida */
+.divisions-section {
+    padding: 3rem 0;
+    background-color: #f8f9fa;
+}
+
+.divisions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.division-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.division-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.division-header {
+    padding: 1.5rem;
+    background: linear-gradient(to right, #2a5a3a, #3d7a4c);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.division-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.division-header h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.division-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.division-details {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #2a5a3a;
+    width: 110px;
+    flex-shrink: 0;
+}
+
+.detail-value {
+    flex-grow: 1;
+}
+
+.division-type {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.division-type.joint {
+    background-color: rgba(65, 105, 225, 0.15);
+    color: royalblue;
+}
+
+.division-type.exclusive {
+    background-color: rgba(46, 139, 87, 0.15);
+    color: seagreen;
+}
+
+.division-description {
+    flex-grow: 1;
+}
+
+.division-description p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Asegurarse de que las tarjetas tengan la misma altura */
+.division-card {
+    height: 100%;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .divisions-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .division-header {
+        padding: 1rem;
+    }
+    
+    .division-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .division-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .division-content {
+        padding: 1rem;
+    }
+}
+
+/* Asegurarse de que la sección de descripción tenga un estilo consistente */
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.section-description p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}

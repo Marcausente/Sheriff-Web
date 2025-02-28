@@ -845,5 +845,25 @@ document.addEventListener('DOMContentLoaded', () => {
         addMapParallaxEffect();
         animateElements();
     });
+
+    // Código para la página de divisiones - Versión corregida
+    document.addEventListener('DOMContentLoaded', function() {
+        // Solo aplicar este código si estamos en la página de divisiones
+        if (document.querySelector('.divisions-section')) {
+            const divisionCards = document.querySelectorAll('.division-card');
+            
+            divisionCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+                });
+            });
+        }
+    });
 });
  

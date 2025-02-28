@@ -6,6 +6,7 @@
     <title>Divisiones - Los Santos County Sheriff Department</title>
     <link rel="icon" type="image/webp" href="img/LSSD.webp">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -37,7 +38,245 @@
         <h1>Divisiones y Ramas</h1>
     </div>
 
-    <!-- Aquí va el contenido específico de divisiones -->
+    <!-- Texto descriptivo -->
+    <div class="section-description">
+        <p>Conoce las diferentes unidades especializadas que conforman el Departamento del Sheriff del Condado de Los Santos, cada una con funciones específicas para garantizar la seguridad y el bienestar de nuestra comunidad.</p>
+    </div>
+
+    <!-- Divisiones -->
+    <section class="divisions-section">
+        <div class="divisions-container">
+            <!-- Air Support Division -->
+            <div class="division-card" data-division="asd">
+                <div class="division-header">
+                    <img src="img/Divisions/ASD.png" alt="Air Support Division" class="division-logo">
+                    <h2>Air Support Division</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Teniente Colin Pierce</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type joint">División Conjunta</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>Unidad especializada en apoyo aéreo para operaciones de vigilancia, persecuciones, rescates y situaciones de emergencia. Proporciona una perspectiva aérea crucial para la coordinación de operativos en tierra.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Criminal Investigation Division -->
+            <div class="division-card" data-division="cid">
+                <div class="division-header">
+                    <img src="img/Divisions/CIDweb.png" alt="Criminal Investigation Division" class="division-logo">
+                    <h2>Criminal Investigation Division</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Detective III Montgomery</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type joint">División Conjunta</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>División encargada de la investigación de delitos graves, recopilación de pruebas y resolución de casos complejos. Los detectives del CID trabajan en estrecha colaboración con otras agencias para llevar a los criminales ante la justicia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Department of Corrections -->
+            <div class="division-card" data-division="dcr">
+                <div class="division-header">
+                    <img src="img/Divisions/DCRweb.png" alt="Department of Corrections" class="division-logo">
+                    <h2>Department of Corrections</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Detective I Shephard</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type joint">División Conjunta</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>Responsable de la administración y seguridad de las instalaciones penitenciarias del condado, incluyendo la Prisión Estatal de Bolingbroke. Garantiza la custodia segura de los reclusos y promueve programas de rehabilitación.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Department of Justice -->
+            <div class="division-card" data-division="doj">
+                <div class="division-header">
+                    <img src="img/Divisions/doj.png" alt="Department of Justice" class="division-logo">
+                    <h2>Department of Justice</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Detective I Shepard</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type exclusive">División Exclusiva</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>Rama legal del departamento que trabaja en estrecha colaboración con fiscales y tribunales. Proporciona asesoramiento jurídico, prepara casos para juicio y asegura que las acciones del departamento cumplan con la legislación vigente. Se encargan tambien de investigación de delitos menores y tramitación de licencias</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- K9 -->
+            <div class="division-card" data-division="k9">
+                <div class="division-header">
+                    <img src="img/Divisions/k9.png" alt="K9 Unit" class="division-logo">
+                    <h2>K9 Unit</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Sargento I Everdeen</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type exclusive">División Exclusiva</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>Unidad especializada que utiliza perros entrenados para tareas como detección de drogas, búsqueda de personas desaparecidas, localización de explosivos y apoyo táctico. Los equipos K9 son fundamentales en numerosas operaciones del departamento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SA. State Park Ranger -->
+            <div class="division-card" data-division="ranger">
+                <div class="division-header">
+                    <img src="img/Divisions/Park Ranger.png" alt="SA. State Park Ranger" class="division-logo">
+                    <h2>SA. State Park Ranger</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Sin Coordinador</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type exclusive">División Exclusiva</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>Encargados de la protección y conservación de los parques estatales y áreas naturales protegidas. Combinan funciones de aplicación de la ley con educación ambiental, prevención de incendios y rescate en zonas silvestres.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SA. Highway Patrol -->
+            <div class="division-card" data-division="sahp">
+                <div class="division-header">
+                    <img src="img/Divisions/SAHP.png" alt="SA. Highway Patrol" class="division-logo">
+                    <h2>SA. Highway Patrol</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Sargento II Ice</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type joint">División Conjunta</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>Responsable de la seguridad vial en las autopistas y carreteras estatales. Se especializa en control de tráfico, respuesta a accidentes, persecuciones de alta velocidad y aplicación de las leyes de tránsito en todo el estado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sheriff Comunications Office -->
+            <div class="division-card" data-division="sco">
+                <div class="division-header">
+                    <img src="img/Divisions/SCO logo.png" alt="Sheriff Comunications Office" class="division-logo">
+                    <h2>Sheriff Comunications Office</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Sin Coordinador</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type exclusive">División Exclusiva</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>Oficina encargada de la comunicación externa del departamento, relaciones con los medios y la comunidad. Gestiona la imagen pública del LSSD, organiza ruedas de prensa y campañas informativas para la ciudadanía.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Enforcement Bureau -->
+            <div class="division-card" data-division="seb">
+                <div class="division-header">
+                    <img src="img/Divisions/seb.png" alt="Special Enforcement Bureau" class="division-logo">
+                    <h2>Special Enforcement Bureau</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Sargento I Halstead</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type joint">División Conjunta</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>Unidad táctica de élite especializada en situaciones de alto riesgo como toma de rehenes, terrorismo y operaciones de rescate complejas. El SEB incluye equipos SWAT, negociadores y especialistas en explosivos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Bureau -->
+            <div class="division-card" data-division="tb">
+                <div class="division-header">
+                    <img src="img/Divisions/TBweb.png" alt="Training Bureau" class="division-logo">
+                    <h2>Training Bureau</h2>
+                </div>
+                <div class="division-content">
+                    <div class="division-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinador:</span>
+                            <span class="detail-value">Capitán Dalton y Sargento Mendoza</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo:</span>
+                            <span class="detail-value division-type joint">División Conjunta</span>
+                        </div>
+                    </div>
+                    <div class="division-description">
+                        <p>Responsable de la formación y capacitación continua de todos los miembros del departamento. Gestiona la academia de policía, cursos de especialización y programas de desarrollo profesional para mantener los más altos estándares.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Lema -->
     <section class="motto-section">
