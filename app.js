@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.carousel-track');
     if (track) {
         const images = [
+            'img/Grupal.png',
             'img/oficina.png',
             'img/carcel.png',
             'img/atril.png',
